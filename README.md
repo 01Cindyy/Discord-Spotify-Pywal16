@@ -1,1 +1,0 @@
-# Discord-Spotify-Pywal16
