@@ -11,7 +11,7 @@ both apps to match, live.
 
 This is mainly a personal project and for my own use.
 The code in this repo is also mainly written by claude.
-This could very well be buggy or completely non funcitonal, so please use at your *own* risk.
+This could very well be buggy or completely non funcitonal for some users, so please use at your *own* risk.
 However feel free to use this and improve it yourself as you wish!
 
 ## Requirements
