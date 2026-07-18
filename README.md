@@ -16,7 +16,7 @@ However feel free to use this and improve it yourself as you wish!
 
 ## Requirements
 
-- Linux, with `sudo` available
+- For now this only works on Linux, in theory it should work on all distros but has only been tested on arch based distros for now.
 - **[pywal16](https://github.com/eylles/pywal16)** installed (`wal` on your
   PATH or in `~/.local/bin`) — the core dependency
 - **Spotify** with **spicetify** set up (for the Spotify half)
@@ -27,6 +27,7 @@ However feel free to use this and improve it yourself as you wish!
 ```sh
 git clone https://github.com/01Cindyy/Discord-Spotify-Pywal16
 cd Discord-Spotify-Pywal16
+chmod +x install.sh
 ./install.sh
 ```
 
@@ -99,8 +100,8 @@ Colour behaviour is tunable at the top of each installed script
 Both scripts anchor the accent on pywal's `color4` so Spotify and Discord end
 up with the *same* accent colour.
 
-**Note:** other enabled Vencord themes that force their own colours (e.g.
-amoled-cord) load alongside and can override the pywal theme — disable them
+**Note:** other enabled Vencord themes that force their own colours 
+load alongside and can override the pywal theme — disable them
 if Discord doesn't change.
 
 ## Uninstall
