@@ -8,11 +8,7 @@ last) in the client's settings. The client watches the themes folder, so once
 the theme is enabled, re-running this while Discord is open reskins it live —
 no restart needed after the first enable.
 
-Portable version: instead of assuming ~/.config/vesktop, this locates the
-active Vencord config folder itself — Vesktop or Vencord-on-Discord, native or
-flatpak — and can be pinned with $PYWAL_DISCORD_DIR if it guesses wrong.
-
-Companion to pywal-spicetify-sync.py; same accent philosophy.
+Companion to pywal-spicetify-sync.py.
 """
 import colorsys
 import json
