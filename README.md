@@ -7,6 +7,13 @@ from your wallpaper with [pywal16](https://github.com/eylles/pywal16).
 One command — `walchange <wallpaper>` — generates the palette and reskins
 both apps to match, live.
 
+## Disclaimer
+
+This is mainly a personal project and for my own use.
+The code in this repo is also mainly written by claude.
+This could very well be buggy or completely non funcitonal use at your *own* risk.
+However feel free to use this and improve it yourself as you wish!
+
 ## Requirements
 
 - Linux, with `sudo` available
