@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 """Sync Spotify's spicetify theme to the current pywal 16-colour scheme.
-
-Portable version: instead of assuming spicetify lives in ~/.spicetify and its
-config in ~/.config/spicetify, this locates the spicetify binary (PATH first,
-then the usual install spots) and asks spicetify itself where its config
-folder is, falling back to $SPICETIFY_CONFIG / $XDG_CONFIG_HOME / ~/.config.
 """
 import colorsys
 import configparser
