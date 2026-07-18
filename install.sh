@@ -51,7 +51,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # ----------------------------------------------------------------- pywal16 --
-# Core dependency; just sanity-check it so a missing install is caught now
+# Core dependency; just check it so a missing install is caught now
 # rather than on the first walchange. (walchange also looks in ~/.local/bin.)
 if ! command -v wal >/dev/null 2>&1 && [[ ! -x "$HOME/.local/bin/wal" ]]; then
     echo "warning: pywal16 (\`wal\`) not found — install it before running walchange" >&2
