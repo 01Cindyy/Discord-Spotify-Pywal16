@@ -25,7 +25,7 @@ However feel free to use this and improve it yourself as you wish!
 ## Install
 
 ```sh
-git clone https://github.com/<your-username>/Pywal16-Discord-Spotify.git
+git clone https://github.com/01Cindyy/Discord-Spotify-Pywal16
 cd Pywal16-Discord-Spotify
 ./install.sh
 ```
