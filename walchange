@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# walchange — set a wallpaper palette with pywal16 and re-theme Spotify +
+# Discord to match.
+#
+# Usage: walchange <wallpaper-image> [extra wal flags...]
+#
+# Runs `wal -i <image>` to generate the 16-colour palette (wal also sets the
+# wallpaper where it supports your setup), then runs whichever sync scripts
+# are installed: pywal-spicetify-sync (Spotify) and pywal-discord-sync
+# (Discord). Installed by install.sh from Pywal16-Discord-Spotify.
+set -uo pipefail
+
+# pipx / pip --user installs put `wal` in ~/.local/bin, which fresh systems
+# often don't have on PATH yet.
+PATH="$HOME/.local/bin:$PATH"
+
+if [[ $# -lt 1 ]]; then
+    echo "usage: walchange <wallpaper-image> [extra wal flags...]" >&2
+    exit 1
+fi
+
+if ! command -v wal >/dev/null 2>&1; then
+    echo "walchange: \`wal\` not found — install pywal16 first (e.g. \`pipx install pywal16\`)." >&2
+    exit 1
+fi
+
+wal -i "$1" "${@:2}" || exit $?
+
+# Run every installed sync; if one fails, still run the other and pass the
+# failure through as the exit status.
+status=0
+if command -v pywal-spicetify-sync >/dev/null 2>&1; then
+    pywal-spicetify-sync || status=$?
+fi
+if command -v pywal-discord-sync >/dev/null 2>&1; then
+    pywal-discord-sync || status=$?
+fi
+exit "$status"
