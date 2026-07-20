@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# walapply — re-theme Spotify + Discord from the CURRENT pywal palette.
+#
+# Usage: walapply
+#
+# Unlike walchange, this does NOT run `wal` or touch your wallpaper — it just
+# re-applies whatever is already in ~/.cache/wal/colors.json to Spotify
+# (pywal-spicetify-sync) and Discord (pywal-discord-sync). Handy after a
+# Spotify/Discord update or restart, or to re-sync without picking a new image.
+# Installed by install.sh from Pywal16-Discord-Spotify.
+set -uo pipefail
+
+# Matches the path the sync scripts read (they use ~/.cache regardless of
+# $XDG_CACHE_HOME), so this guard agrees with them.
+WAL_COLORS="$HOME/.cache/wal/colors.json"
+if [[ ! -f "$WAL_COLORS" ]]; then
+    echo "walapply: $WAL_COLORS not found — run \`walchange <wallpaper>\` (or \`wal -i\`) at least once first." >&2
+    exit 1
+fi
+
+# Run every installed sync; if one fails, still run the other and pass the
+# failure through as the exit status.
+status=0
+if command -v pywal-spicetify-sync >/dev/null 2>&1; then
+    pywal-spicetify-sync || status=$?
+fi
+if command -v pywal-discord-sync >/dev/null 2>&1; then
+    pywal-discord-sync || status=$?
+fi
+exit "$status"
