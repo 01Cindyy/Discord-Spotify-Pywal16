@@ -67,6 +67,15 @@ Extra `wal` flags pass straight through:
 ```sh
 walchange img.png --backend colorz
 ```
+### Re-apply without a new wallpaper
+
+`walapply` re-themes Spotify and Discord from the palette already in
+`~/.cache/wal/colors.json` — it does **not** run `wal` or change your
+wallpaper:
+
+```sh
+walapply
+```
 
 ## How it finds your apps
 
@@ -107,9 +116,16 @@ if Discord doesn't change.
 ## Uninstall
 
 ```sh
-sudo rm /usr/bin/pywal-spicetify-sync /usr/bin/pywal-discord-sync /usr/bin/walchange
+./uninstall.sh
 ```
 
-Optionally also remove the generated themes: the `Pywal` folder in your
-spicetify `Themes/` directory, and `themes/pywal.theme.css` in your
-Vesktop/Vencord config folder.
+Removes the installed commands from `/usr/bin`, then asks whether to also
+delete the generated theme files (the spicetify `Pywal` theme folder and the
+Vencord `pywal.theme.css`, de-registering it from your client's
+`settings.json`).
+
+By hand instead:
+
+```sh
+sudo rm /usr/bin/{pywal-spicetify-sync,pywal-discord-sync,walchange,walapply}
+```
