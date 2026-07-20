@@ -17,8 +17,13 @@ However feel free to use this and improve it yourself as you wish!
 ## Requirements
 
 - For now this only works on Linux, in theory it should work on all distros but has only been tested on arch based distros for now.
-- **[pywal16](https://github.com/eylles/pywal16)** installed (`wal` on your
-  PATH or in `~/.local/bin`) — the core dependency
+- A pywal-style palette at `~/.cache/wal/colors.json`. Either:
+  - **[pywal16](https://github.com/eylles/pywal16)** installed (`wal` on your
+    PATH or in `~/.local/bin`) — needed for `walchange`, which runs `wal -i`; or
+  - any tool that writes that file — e.g. [Noctalia](https://noctalia.dev)'s
+    Material You export. Partial palettes (missing `special`, blank accent
+    slots) are handled: the accent is taken from whatever colour slots are
+    populated and the rest is derived. Use `walapply` for these (see below).
 - **Spotify** with **spicetify** set up (for the Spotify half)
 - **Discord** with **Vencord**, or **Vesktop** — native or flatpak (for the Discord half)
 
